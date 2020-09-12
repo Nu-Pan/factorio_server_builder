@@ -4,8 +4,6 @@
 	"name": "Ubuntu",
 	"build": {
 		"dockerfile": "../Dockerfile",
-		// Update 'VARIANT' to pick an Ubuntu version: focal, bionic
-		"args": { "VARIANT": "focal" }
 	},
 
 	// Set *default* container specific settings.json values on container create.
@@ -13,11 +11,15 @@
 		"terminal.integrated.shell.linux": "/bin/bash"
 	},
 
+	"runArgs": ["-p=34197:34197/udp"],
+
 	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [],
+	"extensions": [
+		"ms-python.python"
+	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [34197],
+	//"forwardPorts": [34197],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",

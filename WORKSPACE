@@ -43,8 +43,8 @@ container_pull(
   name = "server-base",
   registry = "index.docker.io",
   repository = "nupan/factorio-server-base",
-  tag = "latest",
-  #digest = "sha256:60f560e52264ed1cb7829a0d59b1ee7740d7580e0eb293aca2d722136edb1e24",
+  #tag = "latest",
+  digest = "sha256:c269d582492aa6a73598be4bf5cdf18b73864752f3c46f0ec957b44c14e5ff92",
 )
 
 http_archive(

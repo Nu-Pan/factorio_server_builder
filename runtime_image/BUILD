@@ -14,7 +14,7 @@ container_image(
     base = "@server-base//image",
     tars = [":pkg"],
     cmd = ["run_server.sh"],
-    ports = ["34197/udp"],    
+    ports = ["34197:34197/udp"],    
 )
 
 container_push(
