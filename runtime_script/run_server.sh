@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # config
-SAVE_FILE_DIR=/opt/local/factorio/user_save
+SAVE_FILE_DIR=/opt/local/factorio/saves
 SAVE_FILE_PATH=$SAVE_FILE_DIR/world.zip
 RCON_PORT=34198
 RCON_PASSWORD=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`
@@ -9,14 +9,15 @@ RCON_PASSWORD=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 16 | head -n 1`
 echo "RCON_PORT: $RCON_PORT"
 echo "RCON_PASSWORD: $RCON_PASSWORD"
 
-# セーブファイルがなければ作る
-if [ ! -f $SAVE_FILE_PATH ]; then
+# セーブファイルが１つもなければセーブデータを作る
+ls $SAVE_FILE_DIR/*.zip
+if [ $? -ne 0 ]; then
     mkdir -p $SAVE_FILE_DIR
-    factorio --create $SAVE_FILE_PATH
+　　　　    factorio --create $SAVE_FILE_PATH
 fi
 
 # headless モードでサーバー起動
-factorio --start-server $SAVE_FILE_PATH --rcon-port $RCON_PORT --rcon-password $RCON_PASSWORD &
+factorio --start-server-load-latest --rcon-port $RCON_PORT --rcon-password $RCON_PASSWORD &
 
 # 自動終了スクリプトを実行
 sleep 10
