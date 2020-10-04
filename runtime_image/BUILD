@@ -5,7 +5,8 @@ pkg_tar(
     name = "pkg",
     deps = [
         "//server_package:pkg",
-        "//runtime_script:pkg"
+        "//runtime_script:pkg",
+        "//mods:pkg"
     ],
 )
 
