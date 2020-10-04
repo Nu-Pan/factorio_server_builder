@@ -13,7 +13,7 @@ echo "RCON_PASSWORD: $RCON_PASSWORD"
 ls $SAVE_FILE_DIR/*.zip
 if [ $? -ne 0 ]; then
     mkdir -p $SAVE_FILE_DIR
-　　　　    factorio --create $SAVE_FILE_PATH
+    factorio --create $SAVE_FILE_PATH
 fi
 
 # headless モードでサーバー起動
